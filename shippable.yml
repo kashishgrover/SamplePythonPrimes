@@ -1,19 +1,30 @@
 language: python
 
 python:
-    - 2.7
+ - "2.7"
+ - "2.6"
+ - "3.3"
     
-build:
-  pre_ci:
-    - echo 'true'
+services: 
+ - memcached 
+ 
+install: pip install -r requirements.txt
 
-  ci:
-    - ./configure && make && make install
-    - ./hello
+script:
+ - python sample.py
 
-  post_ci:
-    - echo "true"
+#after_success:
+ #- git push git@heroku.com:buildsample.git  master
 
+branches:
+  only:
+    - master
+    
+#cache: true 
+after_script:
+ - cp README.md ./shippable
+
+build_image: drydock/u14pytpls:tip
 integrations:
   notifications:
     - integrationName: meow-shippable
