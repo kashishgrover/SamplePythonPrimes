@@ -6,7 +6,7 @@ python:
  - "3.3"
 
 script:
- - python sample.py
+ - python primes.py
 
 #after_success:
  #- git push git@heroku.com:buildsample.git  master
