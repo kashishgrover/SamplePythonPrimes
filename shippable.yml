@@ -2,8 +2,6 @@ language: python
 
 python:
  - "2.7"
- - "2.6"
- - "3.3"
 
 script:
  - python primes.py
@@ -20,6 +18,7 @@ after_script:
  - cp README.md ./shippable
 
 build_image: drydock/u14pytpls:tip
+
 integrations:
   notifications:
     - integrationName: meow-shippable
