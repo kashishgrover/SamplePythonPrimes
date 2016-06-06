@@ -18,16 +18,3 @@ after_script:
  - cp README.md ./shippable
 
 build_image: drydock/u14pytpls:tip
-
-integrations:
-  notifications:
-    - integrationName: meow-shippable
-      type: slack
-      recipients:
-        - "#meow"
-      branches:
-        only:
-          - master
-          - dev
-      on_success: always
-      on_failure: always
